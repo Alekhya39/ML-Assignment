@@ -1,11 +1,12 @@
-from maths.randomfactory import rand_range
+import random
 import pandas as pd
 from matplotlib import pyplot as plt
+random.seed(1) 
 
 def dice_roller(start,throws):
     steps = []
     for i in range(0,throws):
-        k = rand_range(1,7)
+        k = random.randint(1,7)
         if k == 2 or k==1:
             if start > 0:
                 start-=1
@@ -14,11 +15,12 @@ def dice_roller(start,throws):
         elif k == 3 or k == 4 or k == 5:
             start+=1
         elif k==6 :
-            start+=rand_range(1,7)
+            start+=random.randint(1,7)
         steps.append([k,start])
         
     return steps
 print(dice_roller(0,250))
+
 """QUESTION-2
 CREATE RANDOM DATA FOR MULTIPLE LINEAR REGRESSION
 """
